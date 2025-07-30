@@ -11,10 +11,6 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "employee_assignment")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class EmployeeAssignment {
 
     @Id
@@ -34,4 +30,45 @@ public class EmployeeAssignment {
 
     @Column(name = "active", nullable = false)
     private boolean active = true;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public LocalDate getAssignmentDate() {
+        return assignmentDate;
+    }
+
+    public void setAssignmentDate(LocalDate assignmentDate) {
+        this.assignmentDate = assignmentDate;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 }

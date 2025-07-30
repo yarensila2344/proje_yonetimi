@@ -3,6 +3,7 @@ package com.kolaysoft.proje._yonetimi.controller;
 import com.kolaysoft.proje._yonetimi.dto.ProjectDto;
 import com.kolaysoft.proje._yonetimi.service.ProjectService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,4 +37,11 @@ public class ProjectController {
     public void delete(@PathVariable Long id) {
         projectService.delete(id);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<ProjectDto> update(@PathVariable Long id, @RequestBody ProjectDto projectDto) {
+        ProjectDto updatedProject = projectService.update(id, projectDto);
+        return ResponseEntity.ok(updatedProject);
+    }
+
+
 }

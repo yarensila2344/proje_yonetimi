@@ -22,6 +22,9 @@ public class Role {
 
     @Column(name = "name", nullable = false, unique = true)
     private String name; // ADMIN, PROJECT_MANAGER, EMPLOYEE
+    public String getName() {
+        return name;
+    }
 
     @OneToMany(mappedBy = "rol", fetch = FetchType.LAZY)
     private Set<Employee> employees;

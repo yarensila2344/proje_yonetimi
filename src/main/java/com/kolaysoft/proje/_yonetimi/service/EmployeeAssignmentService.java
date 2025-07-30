@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,6 +24,8 @@ public class EmployeeAssignmentService {
 
     public EmployeeAssignmentDto save(EmployeeAssignmentDto dto) {
         EmployeeAssignment entity = modelMapper.map(dto, EmployeeAssignment.class);
+        entity.setAssignmentDate(LocalDate.now());
+        entity.setActive(true);
         return modelMapper.map(assignmentRepository.save(entity), EmployeeAssignmentDto.class);
     }
 
