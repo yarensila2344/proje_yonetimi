@@ -16,6 +16,12 @@ public class EmployeeAssignmentController {
         this.assignmentService = assignmentService;
     }
 
+    @GetMapping("/test")
+    public String test() {
+        return "Controller çalışıyor!";
+    }
+
+
     @PostMapping
     public EmployeeAssignmentDto assign(@RequestBody EmployeeAssignmentDto dto) {
         return assignmentService.save(dto);
