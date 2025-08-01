@@ -3,7 +3,6 @@ package com.kolaysoft.proje._yonetimi.service;
 import com.kolaysoft.proje._yonetimi.dto.EmployeeAssignmentDto;
 import com.kolaysoft.proje._yonetimi.entity.EmployeeAssignment;
 import com.kolaysoft.proje._yonetimi.repository.EmployeeAssignmentRepository;
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 

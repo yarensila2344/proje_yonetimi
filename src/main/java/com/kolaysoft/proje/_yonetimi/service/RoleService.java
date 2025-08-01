@@ -3,7 +3,6 @@ package com.kolaysoft.proje._yonetimi.service;
 import com.kolaysoft.proje._yonetimi.dto.RoleDto;
 import com.kolaysoft.proje._yonetimi.entity.Role;
 import com.kolaysoft.proje._yonetimi.repository.RoleRepository;
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 

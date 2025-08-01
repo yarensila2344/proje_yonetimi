@@ -2,7 +2,6 @@ package com.kolaysoft.proje._yonetimi.controller;
 
 import com.kolaysoft.proje._yonetimi.dto.RoleDto;
 import com.kolaysoft.proje._yonetimi.service.RoleService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

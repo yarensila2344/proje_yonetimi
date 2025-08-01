@@ -2,7 +2,6 @@ package com.kolaysoft.proje._yonetimi.controller;
 
 import com.kolaysoft.proje._yonetimi.dto.ProjectDto;
 import com.kolaysoft.proje._yonetimi.service.ProjectService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
