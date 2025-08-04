@@ -190,6 +190,70 @@
 //    }
 //}
 
+//package com.kolaysoft.proje._yonetimi.security;
+//
+//import com.kolaysoft.proje._yonetimi.entity.Employee;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
+//
+//import java.util.Collection;
+//import java.util.Collections;
+//
+//public class CustomUserDetails implements UserDetails {
+//
+//    private final Employee employee;
+//
+//    public CustomUserDetails(Employee employee) {
+//        this.employee = employee;
+//    }
+//
+//    public String getRoleName() {
+//        // Role adı entity’de name olarak tanımlı!
+//        return employee.getRol() != null ? employee.getRol().getName() : "USER";
+//    }
+//
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        String roleName = getRoleName();
+//        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + roleName));
+//    }
+//
+//    @Override
+//    public String getPassword() {
+//        return employee.getPassword();
+//    }
+//
+//    @Override
+//    public String getUsername() {
+//        return employee.getUsername();
+//    }
+//
+//    @Override
+//    public boolean isAccountNonExpired() {
+//        return true;  // İstersen gerçek durum mantığını ekleyebilirsin
+//    }
+//
+//    @Override
+//    public boolean isAccountNonLocked() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isCredentialsNonExpired() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isEnabled() {
+//        return true;
+//    }
+//
+//    public Employee getEmployee() {
+//        return employee;
+//    }
+//}
+
 package com.kolaysoft.proje._yonetimi.security;
 
 import com.kolaysoft.proje._yonetimi.entity.Employee;
@@ -208,15 +272,10 @@ public class CustomUserDetails implements UserDetails {
         this.employee = employee;
     }
 
-    public String getRoleName() {
-        // Role adı entity’de name olarak tanımlı!
-        return employee.getRol() != null ? employee.getRol().getName() : "USER";
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        String roleName = getRoleName();
-        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + roleName));
+        // Rol bilgisini alıyoruz
+        return Collections.singletonList(new SimpleGrantedAuthority(employee.getRol().getName()));
     }
 
     @Override
@@ -231,25 +290,22 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;  // İstersen gerçek durum mantığını ekleyebilirsin
+        return true; // süresi dolmamış hesap
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return true; // kilitli değil
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return true; // şifre süresi dolmamış
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
-    }
-
-    public Employee getEmployee() {
-        return employee;
+        return true; // aktif kullanıcı
     }
 }
+
