@@ -103,6 +103,7 @@ package com.kolaysoft.proje._yonetimi.controller;
 
 import com.kolaysoft.proje._yonetimi.dto.EmployeeDto;
 import com.kolaysoft.proje._yonetimi.service.EmployeeService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -128,7 +129,7 @@ public class EmployeeController {
         return employeeService.update(id, dto);
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public List<EmployeeDto> getAll() {
         return employeeService.findAll();
     }

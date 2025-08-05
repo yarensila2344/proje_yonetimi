@@ -342,7 +342,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers(
-                                "/api/employees/save",          // kullanıcı kayıt
+                                "/api/**",
                                 "/api/auth/login",              // login
                                 "/api/roles",                   // rol ekleme veya listeleme (istersen kapatırsın)
                                 "/api/roles/**"                 // tekil rol işlemleri (GET/DELETE gibi)
